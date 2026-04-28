@@ -5,27 +5,7 @@ import 'bloc/todo_bloc.dart';
 import 'bloc/todo_event.dart';
 import 'bloc/todo_state.dart';
 import 'data/api_service.dart';
-
-const Map<String, String> _todoTranslations = {
-  'Do something nice for someone you care about':
-      'Сделать что-нибудь приятное для близкого человека',
-  'Memorize a poem': 'Выучить стихотворение',
-  'Watch a classic movie': 'Посмотреть классический фильм',
-  'Watch a documentary': 'Посмотреть документальный фильм',
-  'Invest in cryptocurrency': 'Инвестировать в криптовалюту',
-  'Contribute code or a monetary donation to an open-source software project':
-      'Помочь open-source проекту кодом или денежным пожертвованием',
-  'Plan a trip to another country': 'Спланировать поездку в другую страну',
-  'Improve touch typing': 'Улучшить навык слепой печати',
-  'Learn Express.js': 'Изучить Express.js',
-  'Learn calligraphy': 'Изучить каллиграфию',
-  'Have a photo session with some friends': 'Устроить фотосессию с друзьями',
-  'Go to the gym': 'Сходить в спортзал',
-};
-
-String _translateTodo(String todo) {
-  return _todoTranslations[todo] ?? todo;
-}
+import 'data/todo_translations.dart';
 
 void main() {
   runApp(MyApp());
@@ -96,7 +76,7 @@ class TodoPage extends StatelessWidget {
                       horizontal: 16,
                       vertical: 10,
                     ),
-                    title: Text(_translateTodo(todo.todo)),
+                    title: Text(translateTodo(todo.todo)),
                     subtitle: Text(
                       todo.completed ? 'Статус: выполнено' : 'Статус: не выполнено',
                     ),
